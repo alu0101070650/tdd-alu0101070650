@@ -12,4 +12,8 @@ class Alimento
     "#{@nombre} (proteínas: #{@proteinas}, glúcidos: #{@glucidos}, grasas: #{@grasas})"
   end
 
+  def valor_energetico
+    (@proteinas * 4) + (@glucidos * 4) + (@grasas * 9)
+  end
+
 end
