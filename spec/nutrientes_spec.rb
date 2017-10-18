@@ -8,6 +8,10 @@ RSpec.describe Nutrientes do
 end
 
 RSpec.describe Alimento do
+  before :each do
+    @tolerancia = 0.1
+  end
+
   it "tiene un nombre" do
     expect{Alimento.new("Pollo")}.not_to raise_error
   end
@@ -88,7 +92,7 @@ RSpec.describe Alimento do
         alimento.proteinas = 20.6
         alimento.glucidos = 0
         alimento.grasas = 5.6
-        expect(alimento.valor_energetico).to eq(132.8)
+        expect(alimento.valor_energetico).to be_within(@tolerancia).of(132.8)
       end
     end
     context "en el alimento Huevo frito" do
@@ -97,7 +101,7 @@ RSpec.describe Alimento do
         alimento.proteinas = 14.1
         alimento.glucidos = 0
         alimento.grasas = 19.5
-        expect(alimento.valor_energetico).to eq(231.9)
+        expect(alimento.valor_energetico).to be_within(@tolerancia).of(231.9)
       end
     end
     context "en el alimento Leche vaca" do
@@ -106,7 +110,7 @@ RSpec.describe Alimento do
         alimento.proteinas = 3.3
         alimento.glucidos = 4.8
         alimento.grasas = 3.2
-        expect(alimento.valor_energetico).to eq(61.2)
+        expect(alimento.valor_energetico).to be_within(@tolerancia).of(61.2)
       end
     end
     context "en el alimento Arroz" do
@@ -115,7 +119,7 @@ RSpec.describe Alimento do
         alimento.proteinas = 6.8
         alimento.glucidos = 77.7
         alimento.grasas = 0.6
-        expect(alimento.valor_energetico).to eq(343.4)
+        expect(alimento.valor_energetico).to be_within(@tolerancia).of(343.4)
       end
     end
     context "en el alimento Aceite de oliva" do
@@ -124,7 +128,7 @@ RSpec.describe Alimento do
         alimento.proteinas = 0
         alimento.glucidos = 0.2
         alimento.grasas = 99.6
-        expect(alimento.valor_energetico).to eq(897.2)
+        expect(alimento.valor_energetico).to be_within(@tolerancia).of(897.2)
       end
     end
   end
