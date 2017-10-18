@@ -68,4 +68,16 @@ RSpec.describe Alimento do
       end
     end
   end
+
+  describe "#to_s" do
+    context "en el alimento Pollo" do
+      it "devuelve Pollo (proteínas: 20.6, glúcidos: 0, lípidos: 5.6)" do
+        alimento = Alimento.new("Pollo")
+        alimento.proteinas = 20.6
+        alimento.glucidos = 0
+        alimento.lipidos = 5.6
+        expect(alimento.grasas).to eq("Pollo (proteínas: 20.6, glúcidos: 0, lípidos: 5.6)")
+      end
+    end
+  end
 end
