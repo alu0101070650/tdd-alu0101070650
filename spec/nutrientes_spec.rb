@@ -29,4 +29,13 @@ RSpec.describe Alimento do
     expect(alimento.instance_variable_defined?(:@grasas)).to be true
     expect(alimento.respond_to?("grasas=")).to be true
   end
+
+  describe "#nombre" do
+    context "en el alimento Pollo" do
+      it "devuelve Pollo" do
+        alimento = Alimento.new("Pollo")
+        expect(alimento.nombre).to eq("Pollo")
+      end
+    end
+  end
 end
