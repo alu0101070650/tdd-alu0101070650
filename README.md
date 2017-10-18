@@ -1,8 +1,8 @@
 # Nutrientes
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nutrientes`. To experiment with that code, run `bin/console` for an interactive prompt.
+Practica 6 de la asignatura Lenguajes y Paradigmas de Programación.
 
-TODO: Delete this and the text above, and describe your gem
+Esta gema es capaz de calcular el valor energético de alimentos en base a su cantidad de proteínas, glúcidos y lípidos.
 
 ## Installation
 
@@ -32,4 +32,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nutrientes.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ULL-ESIT-LPP-1718/tdd-alu0101070650.git.
