@@ -71,12 +71,60 @@ RSpec.describe Alimento do
 
   describe "#to_s" do
     context "en el alimento Pollo" do
-      it "devuelve Pollo (proteínas: 20.6, glúcidos: 0, lípidos: 5.6)" do
+      it "devuelve Pollo (proteínas: 20.6, glúcidos: 0, grasas: 5.6)" do
         alimento = Alimento.new("Pollo")
         alimento.proteinas = 20.6
         alimento.glucidos = 0
-        alimento.lipidos = 5.6
-        expect(alimento.grasas).to eq("Pollo (proteínas: 20.6, glúcidos: 0, lípidos: 5.6)")
+        alimento.grasas = 5.6
+        expect(alimento.to_s).to eq("Pollo (proteínas: 20.6, glúcidos: 0, grasas: 5.6)")
+      end
+    end
+  end
+
+  describe "#valor_energetico" do
+    context "en el alimento Pollo" do
+      it "devuelve 132.8 Kcal" do
+        alimento = Alimento.new("Pollo")
+        alimento.proteinas = 20.6
+        alimento.glucidos = 0
+        alimento.grasas = 5.6
+        expect(alimento.valor_energetico).to eq(132.8)
+      end
+    end
+    context "en el alimento Huevo frito" do
+      it "devuelve 231.9 Kcal" do
+        alimento = Alimento.new("Huevo frito")
+        alimento.proteinas = 14.1
+        alimento.glucidos = 0
+        alimento.grasas = 19.5
+        expect(alimento.valor_energetico).to eq(231.9)
+      end
+    end
+    context "en el alimento Leche vaca" do
+      it "devuelve 61.2 Kcal" do
+        alimento = Alimento.new("Leche vaca")
+        alimento.proteinas = 3.3
+        alimento.glucidos = 4.8
+        alimento.grasas = 3.2
+        expect(alimento.valor_energetico).to eq(61.2)
+      end
+    end
+    context "en el alimento Arroz" do
+      it "devuelve 343.4 Kcal" do
+        alimento = Alimento.new("Arroz")
+        alimento.proteinas = 6.8
+        alimento.glucidos = 77.7
+        alimento.grasas = 0.6
+        expect(alimento.valor_energetico).to eq(343.4)
+      end
+    end
+    context "en el alimento Aceite de oliva" do
+      it "devuelve 897.2 Kcal" do
+        alimento = Alimento.new("Aceite de oliva")
+        alimento.proteinas = 0
+        alimento.glucidos = 0.2
+        alimento.grasas = 99.6
+        expect(alimento.valor_energetico).to eq(897.2)
       end
     end
   end
