@@ -38,4 +38,34 @@ RSpec.describe Alimento do
       end
     end
   end
+
+  describe "#proteinas" do
+    context "en el alimento Pollo" do
+      it "devuelve 20.6 gramos" do
+        alimento = Alimento.new("Pollo")
+        alimento.proteinas = 20.6
+        expect(alimento.proteinas).to eq(20.6)
+      end
+    end
+  end
+
+  describe "#glucidos" do
+    context "en el alimento Yogurt" do
+      it "devuelve 4.9 gramos" do
+        alimento = Alimento.new("Yogurt")
+        alimento.glucidos = 4.9
+        expect(alimento.glucidos).to eq(4.9)
+      end
+    end
+  end
+
+  describe "#grasas" do
+    context "en el alimento Pollo" do
+      it "devuelve 5.6 gramos" do
+        alimento = Alimento.new("Pollo")
+        alimento.grasas = 5.6
+        expect(alimento.grasas).to eq(5.6)
+      end
+    end
+  end
 end
