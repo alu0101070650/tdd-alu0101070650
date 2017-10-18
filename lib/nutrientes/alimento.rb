@@ -1,5 +1,6 @@
 class Alimento
-  attr_writer :nombre, :proteinas, :glucidos, :grasas
+  attr_accessor :nombre
+  attr_writer :proteinas, :glucidos, :grasas
 
   def initialize(nombre)
     @nombre = nombre
