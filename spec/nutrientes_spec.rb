@@ -1,5 +1,13 @@
 require "spec_helper"
 require "nutrientes/alimento"
+require "nutrientes/huevo_lacteo_helado"
+require "nutrientes/derivado_carne"
+require "nutrientes/pescado_marisco"
+require "nutrientes/alimento_graso"
+require "nutrientes/alimento_rico_carbohidratos"
+require "nutrientes/verdura_hortaliza"
+require "nutrientes/fruta"
+require "nutrientes/bebida"
 require "nutrientes/nodo"
 require "nutrientes/lista"
 
@@ -66,6 +74,222 @@ RSpec.describe Lista do
       end
     end
 
+  end
+end
+
+RSpec.describe HuevoLacteoHelado do
+  context "para una instancia de la clase" do
+    before :each do
+      @alimento = HuevoLacteoHelado.new("Huevo frito")
+    end
+
+    it "su clase es HuevoLacteoHelado" do
+      expect(@alimento.class).to eq("HuevoLacteoHelado")
+    end
+
+    it "es de tipo Alimento" do
+      expect(@alimento.respond_to?("valor_energetico")).to be true
+      expect(@alimento.respond_to?("proteinas")).to be true
+      expect(@alimento.respond_to?("glucidos")).to be true
+      expect(@alimento.respond_to?("grasas")).to be true
+      expect(@alimento.respond_to?("nombre")).to be true
+      expect(@alimento.respond_to?("proteinas=")).to be true
+      expect(@alimento.respond_to?("glucidos=")).to be true
+      expect(@alimento.respond_to?("grasas=")).to be true
+    end
+
+    it "es un Alimento" do
+      expect(@alimento.is_a?(Alimento)).to be true
+    end
+  end
+end
+
+RSpec.describe DerivadoCarne do
+  context "para una instancia de la clase" do
+    before :each do
+      @alimento = DerivadoCarne.new("Cerdo")
+    end
+
+    it "su clase es DerivadoCarne" do
+      expect(@alimento.class).to eq("DerivadoCarne")
+    end
+
+    it "es de tipo Alimento" do
+      expect(@alimento.respond_to?("valor_energetico")).to be true
+      expect(@alimento.respond_to?("proteinas")).to be true
+      expect(@alimento.respond_to?("glucidos")).to be true
+      expect(@alimento.respond_to?("grasas")).to be true
+      expect(@alimento.respond_to?("nombre")).to be true
+      expect(@alimento.respond_to?("proteinas=")).to be true
+      expect(@alimento.respond_to?("glucidos=")).to be true
+      expect(@alimento.respond_to?("grasas=")).to be true
+    end
+
+    it "es un Alimento" do
+      expect(@alimento.is_a?(Alimento)).to be true
+    end
+  end
+end
+
+RSpec.describe PescadoMarisco do
+  context "para una instancia de la clase" do
+    before :each do
+      @alimento = PescadoMarisco.new("Bacalao")
+    end
+
+    it "su clase es PescadoMarisco" do
+      expect(@alimento.class).to eq("PescadoMarisco")
+    end
+
+    it "es de tipo Alimento" do
+      expect(@alimento.respond_to?("valor_energetico")).to be true
+      expect(@alimento.respond_to?("proteinas")).to be true
+      expect(@alimento.respond_to?("glucidos")).to be true
+      expect(@alimento.respond_to?("grasas")).to be true
+      expect(@alimento.respond_to?("nombre")).to be true
+      expect(@alimento.respond_to?("proteinas=")).to be true
+      expect(@alimento.respond_to?("glucidos=")).to be true
+      expect(@alimento.respond_to?("grasas=")).to be true
+    end
+
+    it "es un Alimento" do
+      expect(@alimento.is_a?(Alimento)).to be true
+    end
+  end
+end
+
+RSpec.describe AlimentoGraso do
+  context "para una instancia de la clase" do
+    before :each do
+      @alimento = AlimentoGraso.new("Chocolate")
+    end
+
+    it "su clase es AlimentoGraso" do
+      expect(@alimento.class).to eq("AlimentoGraso")
+    end
+
+    it "es de tipo Alimento" do
+      expect(@alimento.respond_to?("valor_energetico")).to be true
+      expect(@alimento.respond_to?("proteinas")).to be true
+      expect(@alimento.respond_to?("glucidos")).to be true
+      expect(@alimento.respond_to?("grasas")).to be true
+      expect(@alimento.respond_to?("nombre")).to be true
+      expect(@alimento.respond_to?("proteinas=")).to be true
+      expect(@alimento.respond_to?("glucidos=")).to be true
+      expect(@alimento.respond_to?("grasas=")).to be true
+    end
+
+    it "es un Alimento" do
+      expect(@alimento.is_a?(Alimento)).to be true
+    end
+  end
+end
+
+RSpec.describe AlimentoRicoCarbohidratos do
+  context "para una instancia de la clase" do
+    before :each do
+      @alimento = AlimentoRicoCarbohidratos.new("Arroz")
+    end
+
+    it "su clase es AlimentoRicoCarbohidratos" do
+      expect(@alimento.class).to eq("AlimentoRicoCarbohidratos")
+    end
+
+    it "es de tipo Alimento" do
+      expect(@alimento.respond_to?("valor_energetico")).to be true
+      expect(@alimento.respond_to?("proteinas")).to be true
+      expect(@alimento.respond_to?("glucidos")).to be true
+      expect(@alimento.respond_to?("grasas")).to be true
+      expect(@alimento.respond_to?("nombre")).to be true
+      expect(@alimento.respond_to?("proteinas=")).to be true
+      expect(@alimento.respond_to?("glucidos=")).to be true
+      expect(@alimento.respond_to?("grasas=")).to be true
+    end
+
+    it "es un Alimento" do
+      expect(@alimento.is_a?(Alimento)).to be true
+    end
+  end
+end
+
+RSpec.describe VerduraHortaliza do
+  context "para una instancia de la clase" do
+    before :each do
+      @alimento = VerduraHortaliza.new("Tomate")
+    end
+
+    it "su clase es VerduraHortaliza" do
+      expect(@alimento.class).to eq("VerduraHortaliza")
+    end
+
+    it "es de tipo Alimento" do
+      expect(@alimento.respond_to?("valor_energetico")).to be true
+      expect(@alimento.respond_to?("proteinas")).to be true
+      expect(@alimento.respond_to?("glucidos")).to be true
+      expect(@alimento.respond_to?("grasas")).to be true
+      expect(@alimento.respond_to?("nombre")).to be true
+      expect(@alimento.respond_to?("proteinas=")).to be true
+      expect(@alimento.respond_to?("glucidos=")).to be true
+      expect(@alimento.respond_to?("grasas=")).to be true
+    end
+
+    it "es un Alimento" do
+      expect(@alimento.is_a?(Alimento)).to be true
+    end
+  end
+end
+
+RSpec.describe Fruta do
+  context "para una instancia de la clase" do
+    before :each do
+      @alimento = Fruta.new("Manzana")
+    end
+
+    it "su clase es Fruta" do
+      expect(@alimento.class).to eq("Fruta")
+    end
+
+    it "es de tipo Alimento" do
+      expect(@alimento.respond_to?("valor_energetico")).to be true
+      expect(@alimento.respond_to?("proteinas")).to be true
+      expect(@alimento.respond_to?("glucidos")).to be true
+      expect(@alimento.respond_to?("grasas")).to be true
+      expect(@alimento.respond_to?("nombre")).to be true
+      expect(@alimento.respond_to?("proteinas=")).to be true
+      expect(@alimento.respond_to?("glucidos=")).to be true
+      expect(@alimento.respond_to?("grasas=")).to be true
+    end
+
+    it "es un Alimento" do
+      expect(@alimento.is_a?(Alimento)).to be true
+    end
+  end
+end
+
+RSpec.describe Bebida do
+  context "para una instancia de la clase" do
+    before :each do
+      @alimento = Bebida.new("Zumo naranja")
+    end
+
+    it "su clase es Bebida" do
+      expect(@alimento.class).to eq("Bebida")
+    end
+
+    it "es de tipo Alimento" do
+      expect(@alimento.respond_to?("valor_energetico")).to be true
+      expect(@alimento.respond_to?("proteinas")).to be true
+      expect(@alimento.respond_to?("glucidos")).to be true
+      expect(@alimento.respond_to?("grasas")).to be true
+      expect(@alimento.respond_to?("nombre")).to be true
+      expect(@alimento.respond_to?("proteinas=")).to be true
+      expect(@alimento.respond_to?("glucidos=")).to be true
+      expect(@alimento.respond_to?("grasas=")).to be true
+    end
+
+    it "es un Alimento" do
+      expect(@alimento.is_a?(Alimento)).to be true
+    end
   end
 end
 
