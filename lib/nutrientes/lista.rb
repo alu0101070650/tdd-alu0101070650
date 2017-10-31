@@ -31,11 +31,29 @@ class Lista
       siguiente = @cabeza.siguiente
       if siguiente.nil?
         @cabeza = nil
+        @cola = nil
       else
         siguiente.previo = nil
         @cabeza = siguiente
       end
       antigua_cabeza.valor
+    end
+  end
+
+  def extraer_cola
+    if @cola.nil?
+      nil
+    else
+      antigua_cola = @cola
+      previo = @cola.previo
+      if previo.nil?
+        @cabeza = nil
+        @cola = nil
+      else
+        previo.previo = nil
+        @cola = previo
+      end
+      antigua_cola.valor
     end
   end
 end
