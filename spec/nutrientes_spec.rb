@@ -36,6 +36,12 @@ RSpec.describe Lista do
       end
     end
 
+    describe "#insertar_a" do
+      it "inserta varios elementos en la lista" do
+        @lista.insertar_a ["Hola", "que", "tal"]
+      end
+    end
+
   end
 end
 
