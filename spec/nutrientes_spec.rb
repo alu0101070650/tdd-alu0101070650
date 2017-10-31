@@ -1,5 +1,6 @@
 require "spec_helper"
 require "nutrientes/alimento"
+require "nutrientes/nodo"
 
 RSpec.describe Nutrientes do
   it "tiene un numero de version" do
