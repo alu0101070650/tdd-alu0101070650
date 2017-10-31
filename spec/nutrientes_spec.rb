@@ -24,6 +24,19 @@ RSpec.describe Lista do
     expect(lista.instance_variable_defined?(:@cabeza)).to be true
     expect(lista.instance_variable_defined?(:@cola)).to be true
   end
+
+  context "en una lista vacia" do
+    before :each do
+      @lista = Lista.new
+    end
+
+    describe "#insertar" do
+      it "inserta un elemento en la lista" do
+        @lista.insertar "Hola"
+      end
+    end
+
+  end
 end
 
 RSpec.describe Alimento do
