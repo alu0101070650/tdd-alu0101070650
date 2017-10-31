@@ -17,4 +17,9 @@ class Lista
       @cola = nodo
     end
   end
+
+  def insertar_a(elementos)
+    raise ArgumentError, "elementos no es un array" unless elementos.is_a? Array
+    elementos.each {|e| insertar e}
+  end
 end
