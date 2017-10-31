@@ -1,0 +1,2 @@
+class DerivadoCarne < Alimento
+end

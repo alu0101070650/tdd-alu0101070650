@@ -84,7 +84,7 @@ RSpec.describe HuevoLacteoHelado do
     end
 
     it "su clase es HuevoLacteoHelado" do
-      expect(@alimento.class).to eq("HuevoLacteoHelado")
+      expect(@alimento.class).to eq(HuevoLacteoHelado)
     end
 
     it "es de tipo Alimento" do
@@ -111,7 +111,7 @@ RSpec.describe DerivadoCarne do
     end
 
     it "su clase es DerivadoCarne" do
-      expect(@alimento.class).to eq("DerivadoCarne")
+      expect(@alimento.class).to eq(DerivadoCarne)
     end
 
     it "es de tipo Alimento" do
@@ -138,7 +138,7 @@ RSpec.describe PescadoMarisco do
     end
 
     it "su clase es PescadoMarisco" do
-      expect(@alimento.class).to eq("PescadoMarisco")
+      expect(@alimento.class).to eq(PescadoMarisco)
     end
 
     it "es de tipo Alimento" do
@@ -165,7 +165,7 @@ RSpec.describe AlimentoGraso do
     end
 
     it "su clase es AlimentoGraso" do
-      expect(@alimento.class).to eq("AlimentoGraso")
+      expect(@alimento.class).to eq(AlimentoGraso)
     end
 
     it "es de tipo Alimento" do
@@ -192,7 +192,7 @@ RSpec.describe AlimentoRicoCarbohidratos do
     end
 
     it "su clase es AlimentoRicoCarbohidratos" do
-      expect(@alimento.class).to eq("AlimentoRicoCarbohidratos")
+      expect(@alimento.class).to eq(AlimentoRicoCarbohidratos)
     end
 
     it "es de tipo Alimento" do
@@ -219,7 +219,7 @@ RSpec.describe VerduraHortaliza do
     end
 
     it "su clase es VerduraHortaliza" do
-      expect(@alimento.class).to eq("VerduraHortaliza")
+      expect(@alimento.class).to eq(VerduraHortaliza)
     end
 
     it "es de tipo Alimento" do
@@ -246,7 +246,7 @@ RSpec.describe Fruta do
     end
 
     it "su clase es Fruta" do
-      expect(@alimento.class).to eq("Fruta")
+      expect(@alimento.class).to eq(Fruta)
     end
 
     it "es de tipo Alimento" do
@@ -273,7 +273,7 @@ RSpec.describe Bebida do
     end
 
     it "su clase es Bebida" do
-      expect(@alimento.class).to eq("Bebida")
+      expect(@alimento.class).to eq(Bebida)
     end
 
     it "es de tipo Alimento" do

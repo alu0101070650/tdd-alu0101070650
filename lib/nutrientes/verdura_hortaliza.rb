@@ -1,0 +1,2 @@
+class VerduraHortaliza < Alimento
+end

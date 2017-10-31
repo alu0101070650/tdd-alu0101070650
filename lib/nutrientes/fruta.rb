@@ -1,0 +1,2 @@
+class Fruta < Alimento
+end

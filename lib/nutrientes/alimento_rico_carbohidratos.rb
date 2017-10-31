@@ -1,0 +1,2 @@
+class AlimentoRicoCarbohidratos < Alimento
+end

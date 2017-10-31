@@ -1,0 +1,2 @@
+class PescadoMarisco < Alimento
+end

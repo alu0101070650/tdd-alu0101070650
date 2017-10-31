@@ -1,0 +1,2 @@
+class AlimentoGraso < Alimento
+end

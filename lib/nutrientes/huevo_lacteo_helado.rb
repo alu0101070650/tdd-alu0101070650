@@ -1,0 +1,2 @@
+class HuevoLacteoHelado < Alimento
+end
