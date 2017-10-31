@@ -7,6 +7,15 @@ RSpec.describe Nutrientes do
   end
 end
 
+RSpec.describe Nodo do
+  it "existe un Nodo con sus datos, su siguiente y su previo" do
+    nodo = Nodo.new()
+    expect(nodo.respond_to?("valor=")).to be true
+    expect(nodo.respond_to?("siguiente=")).to be true
+    expect(nodo.respond_to?("previo=")).to be true
+  end
+end
+
 RSpec.describe Alimento do
   before :each do
     @tolerancia = 0.1
