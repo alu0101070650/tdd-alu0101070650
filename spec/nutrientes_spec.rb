@@ -32,13 +32,29 @@ RSpec.describe Lista do
 
     describe "#insertar" do
       it "inserta un elemento en la lista" do
-        @lista.insertar "Hola"
+        expect(@lista.respond_to?("insertar")).to be true
       end
     end
 
     describe "#insertar_a" do
       it "inserta varios elementos en la lista" do
-        @lista.insertar_a ["Hola", "que", "tal"]
+        expect(@lista.respond_to?("insertar_a")).to be true
+      end
+    end
+
+  end
+
+  context "en una lista con elementos" do
+    before :each do
+      @lista = Lista.new
+      @lista.insertar_a ["Hola", "que", "tal"]
+    end
+
+    describe "#extraer_cabeza" do
+      it "extrae el primer elemento de la lista" do
+        expect(@lista.respond_to?("extraer_cabeza")).to be true
+        expect(@lista.extraer_cabeza).to eq("Hola")
+        expect(@lista.extraer_cabeza).to eq("que")
       end
     end
 
