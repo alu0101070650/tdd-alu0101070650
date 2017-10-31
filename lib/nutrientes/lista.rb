@@ -22,4 +22,20 @@ class Lista
     raise ArgumentError, "elementos no es un array" unless elementos.is_a? Array
     elementos.each {|e| insertar e}
   end
+
+  def extraer_cabeza
+    if @cabeza.nil?
+      nil
+    else
+      antigua_cabeza = @cabeza
+      siguiente = @cabeza.siguiente
+      if siguiente.nil?
+        @cabeza = nil
+      else
+        siguiente.previo = nil
+        @cabeza = siguiente
+      end
+      antigua_cabeza.valor
+    end
+  end
 end
