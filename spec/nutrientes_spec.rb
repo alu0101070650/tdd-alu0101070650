@@ -58,6 +58,14 @@ RSpec.describe Lista do
       end
     end
 
+    describe "#extraer_cola" do
+      it "extrae el último elemento de la lista" do
+        expect(@lista.respond_to?("extraer_cola")).to be true
+        expect(@lista.extraer_cola).to eq("tal")
+        expect(@lista.extraer_cola).to eq("que")
+      end
+    end
+
   end
 end
 
