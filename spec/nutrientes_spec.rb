@@ -1,6 +1,7 @@
 require "spec_helper"
 require "nutrientes/alimento"
 require "nutrientes/nodo"
+require "nutrientes/lista"
 
 RSpec.describe Nutrientes do
   it "tiene un numero de version" do
@@ -10,10 +11,18 @@ end
 
 RSpec.describe Nodo do
   it "existe un Nodo con sus datos, su siguiente y su previo" do
-    nodo = Nodo.new()
+    nodo = Nodo.new
     expect(nodo.respond_to?("valor=")).to be true
     expect(nodo.respond_to?("siguiente=")).to be true
     expect(nodo.respond_to?("previo=")).to be true
+  end
+end
+
+RSpec.describe Lista do
+  it "existe una Lista con su cabeza y cola" do
+    lista = Lista.new
+    expect(lista.instance_variable_defined?(:@cabeza)).to be true
+    expect(lista.instance_variable_defined?(:@cola)).to be true
   end
 end
 
