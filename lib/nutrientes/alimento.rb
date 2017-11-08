@@ -1,4 +1,5 @@
 class Alimento
+  include Comparable
   attr_accessor :nombre, :proteinas, :glucidos, :grasas
 
   def initialize(nombre)
