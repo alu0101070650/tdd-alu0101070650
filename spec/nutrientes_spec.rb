@@ -1,15 +1,4 @@
 require "spec_helper"
-require "nutrientes/alimento"
-require "nutrientes/huevo_lacteo_helado"
-require "nutrientes/derivado_carne"
-require "nutrientes/pescado_marisco"
-require "nutrientes/alimento_graso"
-require "nutrientes/alimento_rico_carbohidratos"
-require "nutrientes/verdura_hortaliza"
-require "nutrientes/fruta"
-require "nutrientes/bebida"
-require "nutrientes/nodo"
-require "nutrientes/lista"
 
 RSpec.describe Nutrientes do
   before :each do
@@ -374,6 +363,17 @@ RSpec.describe Nutrientes do
   end
 
   describe Alimento do
+
+    it "es comparable" do
+      alimento = Alimento.new("Pollo")
+      expect(alimento.respond_to?("<")).to be true
+      expect(alimento.respond_to?("<=")).to be true
+      expect(alimento.respond_to?("==")).to be true
+      expect(alimento.respond_to?(">=")).to be true
+      expect(alimento.respond_to?(">")).to be true
+      expect(alimento.respond_to?("between?")).to be true
+    end
+
     context "para una instancia cualquiera" do
       it "tiene un nombre" do
         expect {Alimento.new("Pollo")}.not_to raise_error
