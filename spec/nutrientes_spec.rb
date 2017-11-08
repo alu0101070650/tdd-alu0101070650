@@ -25,6 +25,12 @@ RSpec.describe Nutrientes do
       expect(lista.instance_variable_defined?(:@cola)).to be true
     end
 
+    it "es enumerable" do
+      lista = Lista.new
+      expect(lista.respond_to?("each")).to be true
+      expect(Lista < Enumerable).to be true
+    end
+
     context "en una lista vacia" do
       before :each do
         @lista = Lista.new
@@ -366,12 +372,8 @@ RSpec.describe Nutrientes do
 
     it "es comparable" do
       alimento = Alimento.new("Pollo")
-      expect(alimento.respond_to?("<")).to be true
-      expect(alimento.respond_to?("<=")).to be true
-      expect(alimento.respond_to?("==")).to be true
-      expect(alimento.respond_to?(">=")).to be true
-      expect(alimento.respond_to?(">")).to be true
-      expect(alimento.respond_to?("between?")).to be true
+      expect(alimento.respond_to?("<=>")).to be true
+      expect(Alimento < Comparable).to be true
     end
 
     context "para una instancia cualquiera" do
