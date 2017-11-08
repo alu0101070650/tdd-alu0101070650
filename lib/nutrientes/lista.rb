@@ -1,4 +1,6 @@
 class Lista
+  include Comparable
+  include Enumerable
 
   def initialize
     @cabeza = nil
@@ -54,6 +56,28 @@ class Lista
         @cola = previo
       end
       antigua_cola.valor
+    end
+  end
+
+  def numero_nodos
+    nodo_actual = @cabeza
+    numero_nodos = 0
+    while nodo_actual != nil do
+      nodo_actual = nodo_actual.siguiente
+      numero_nodos += 1
+    end
+    numero_nodos
+  end
+
+  def <=>(otro)
+    numero_nodos <=> otro.numero_nodos
+  end
+
+  def each
+    nodo_actual = @cabeza
+    1.upto(numero_nodos) do
+      yield nodo_actual.valor
+      nodo_actual = nodo_actual.siguiente
     end
   end
 end
