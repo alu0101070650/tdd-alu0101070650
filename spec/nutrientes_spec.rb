@@ -29,6 +29,10 @@ RSpec.describe Nutrientes do
       lista = Lista.new
       expect(lista.respond_to?("each")).to be true
       expect(Lista < Enumerable).to be true
+      lista.insertar_a(["Hola", "que", "tal"])
+      a = []
+      lista.each{|x| a << x}
+      expect(a == ["Hola", "que", "tal"]).to be true
     end
 
     context "en una lista vacia" do
@@ -374,6 +378,10 @@ RSpec.describe Nutrientes do
       alimento = Alimento.new("Pollo")
       expect(alimento.respond_to?("<=>")).to be true
       expect(Alimento < Comparable).to be true
+      expect(Alimento.new("Leche") == Alimento.new("Leche")).to be true
+      expect(Alimento.new("Leche") == Alimento.new("Atún")).to be false
+      expect(Alimento.new("Pan") < Alimento.new("Cereales")).to be false
+      expect(Alimento.new("Pan") > Alimento.new("Cereales")).to be true
     end
 
     context "para una instancia cualquiera" do
