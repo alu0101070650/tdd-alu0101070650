@@ -14,11 +14,15 @@ class Alimento
   # @return [Numeric] la cantidad de grasas del alimento
   attr_accessor :grasas
 
+  # @return [Array] las mediciones de glucosa en uno o más individuos cuando consumen el alimento
+  attr_accessor :mediciones_alimento
+
   def initialize(nombre)
     @nombre = nombre
     @proteinas = 0
     @glucidos = 0
     @grasas = 0
+    @mediciones_alimento = []
   end
 
   # Formatea el alimento
@@ -31,6 +35,14 @@ class Alimento
   # @return [Numeric] el valor energetico del alimento
   def valor_energetico
     (@proteinas * 4) + (@glucidos * 4) + (@grasas * 9)
+  end
+
+  # Calcula el indice glucemico del alimento
+  # @param delta_tiempo [Numeric] el tiempo transcurrido entre cada medición
+  # @param mediciones_glucosa [Array] las mediciones de glucosa en uno o más individuos cuando consumen glucosa
+  # @return [Numeric] el indice glucemico del alimento
+  def indice_glucemico(delta_tiempo, mediciones_glucosa)
+    (0..@mediciones_alimento.size - 1).map {|persona| (1..24).map {|i| (((@mediciones_alimento[persona][i] - @mediciones_alimento[persona][0]) + (@mediciones_alimento[persona][i-1] - @mediciones_alimento[persona][0]))/2)*delta_tiempo}.reduce(:+) / (1..24).map {|i| (((mediciones_glucosa[persona][i] - mediciones_glucosa[persona][0]) + (mediciones_glucosa[persona][i-1] - mediciones_glucosa[persona][0]))/2)*delta_tiempo}.reduce(:+) * 100}.reduce(:+) / @mediciones_alimento.size
   end
 
   # Compara dos alimentos
