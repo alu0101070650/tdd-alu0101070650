@@ -1,6 +1,6 @@
 # Nutrientes
 
-Practica 6 de la asignatura Lenguajes y Paradigmas de Programación.
+Practica 9 de la asignatura Lenguajes y Paradigmas de Programación.
 
 Esta gema es capaz de calcular el valor energético de alimentos en base a su cantidad de proteínas, glúcidos y lípidos.
 
@@ -19,10 +19,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install nutrientes
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
