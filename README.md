@@ -1,6 +1,6 @@
 # Nutrientes
 
-Practica 9 de la asignatura Lenguajes y Paradigmas de Programación.
+Practica 10 de la asignatura Lenguajes y Paradigmas de Programación.
 
 Esta gema es capaz de calcular el valor energético de alimentos en base a su cantidad de proteínas, glúcidos y lípidos.
 
