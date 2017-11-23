@@ -49,7 +49,7 @@ class Alimento
   # @param otro [Alimento] el otro alimento con el que comparar
   # @return [Numeric] -1 si otro es mayor, 0 si son iguales o 1 si otro es menor
   def <=>(otro)
-    @nombre <=> otro.nombre
+    valor_energetico <=> otro.valor_energetico
   end
 
 end
