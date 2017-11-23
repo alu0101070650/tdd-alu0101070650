@@ -2,21 +2,35 @@
 
 require "bundler/setup"
 require "nutrientes"
+require "benchmark"
+include Benchmark
 
 def sort_for(array)
   array_ordenado=array.map(&:clone)
   n = array_ordenado.length
-
   loop do
     cambiado = false
-    #(n-1).times do |i|
     for i in 0..n-2 do
       if array_ordenado[i] > array_ordenado[i+1]
         array_ordenado[i], array_ordenado[i+1] = array_ordenado[i+1], array_ordenado[i]
         cambiado = true
       end
     end
+    break unless cambiado
+  end
+  array_ordenado
+end
 
+def sort_each(array)
+  array_ordenado=array.map(&:clone)
+  loop do
+    cambiado = false
+    (0..array_ordenado.length-2).each { |i|
+      if array_ordenado[i] > array_ordenado[i+1]
+        array_ordenado[i], array_ordenado[i+1] = array_ordenado[i+1], array_ordenado[i]
+        cambiado = true
+      end
+    }
     break unless cambiado
   end
 
@@ -46,6 +60,8 @@ alimentos = [HuevoLacteoHelado.new("Huevo frito", 14.1, 0, 19.5),
              Fruta.new("Plátanos", 1.2, 21.4, 0.2),
              Fruta.new("Pera", 0.5, 12.7, 0.3)]
 
-puts alimentos
-puts "       "
-puts sort_for alimentos
+Benchmark.bmbm do |x|
+  x.report("sort_for") { sort_for alimentos }
+  x.report("sort_each")  { sort_each alimentos  }
+  x.report("sort")  { alimentos.sort  }
+end
