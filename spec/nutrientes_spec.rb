@@ -1,5 +1,28 @@
 require "spec_helper"
 
+alimentos = [HuevoLacteoHelado.new("Huevo frito", 14.1, 0, 19.5),
+             HuevoLacteoHelado.new("Leche vaca", 3.3,4.8,3.2),
+             HuevoLacteoHelado.new("Yogurt", 3.8,4.9,3.8),
+             DerivadoCarne.new("Cerdo", 21.5, 0, 6.3),
+             DerivadoCarne.new("Ternera", 21.1,0,3.1),
+             DerivadoCarne.new("Pollo", 20.6,0,5.6),
+             PescadoMarisco.new("Bacalao", 17.7, 0, 0.4),
+             PescadoMarisco.new("Atún", 21.5, 0, 15.5),
+             PescadoMarisco.new("Salmón", 19.9,0,13.6),
+             AlimentoGraso.new("Aceite de oliva",0,0.2,99.6),
+             AlimentoGraso.new("Mantequilla", 0.7,0,83.2),
+             AlimentoGraso.new("Chocolate",5.3,47,30),
+             AlimentoRicoCarbohidratos.new("Azúcar", 0, 99.8, 0),
+             AlimentoRicoCarbohidratos.new("Arroz", 6.8,77.7,0.6),
+             AlimentoRicoCarbohidratos.new("Lentejas",23.5,52.0,1.4),
+             AlimentoRicoCarbohidratos.new("Papas",2,15.4,0.1),
+             VerduraHortaliza.new("Tomate", 1,3.5,0.2),
+             VerduraHortaliza.new("Cebolla", 1.3, 5.8, 0.3),
+             VerduraHortaliza.new("Calabaza", 1.1,4.8,0.1),
+             Fruta.new("Manzana",0.3,12.4,0.4),
+             Fruta.new("Plátanos",1.2,21.4,0.2),
+             Fruta.new("Pera", 0.5,12.7,0.3)]
+
 RSpec.describe Nutrientes do
   before :each do
     @tolerancia = 0.1
@@ -82,7 +105,7 @@ RSpec.describe Nutrientes do
   describe HuevoLacteoHelado do
     context "para una instancia de la clase" do
       before :each do
-        @alimento = HuevoLacteoHelado.new("Huevo frito")
+        @alimento = HuevoLacteoHelado.new("Huevo frito", 0, 0, 0)
       end
 
       it "su clase es HuevoLacteoHelado" do
@@ -107,10 +130,7 @@ RSpec.describe Nutrientes do
     context "para el Huevo frito" do
       describe "#valor_energetico" do
         it "devuelve 231.9 Kcal" do
-          alimento = HuevoLacteoHelado.new("Huevo frito")
-          alimento.proteinas = 14.1
-          alimento.glucidos = 0.0
-          alimento.grasas = 19.5
+          alimento = HuevoLacteoHelado.new("Huevo frito", 14.1, 0, 19.5)
           expect(alimento.valor_energetico).to be_within(@tolerancia).of(231.9)
         end
       end
@@ -120,7 +140,7 @@ RSpec.describe Nutrientes do
   describe DerivadoCarne do
     context "para una instancia de la clase" do
       before :each do
-        @alimento = DerivadoCarne.new("Cerdo")
+        @alimento = DerivadoCarne.new("Cerdo", 0, 0, 0)
       end
 
       it "su clase es DerivadoCarne" do
@@ -144,10 +164,7 @@ RSpec.describe Nutrientes do
       context "para el Cerdo" do
         describe "#valor_energetico" do
           it "devuelve 142.7 Kcal" do
-            alimento = DerivadoCarne.new("Cerdo")
-            alimento.proteinas = 21.5
-            alimento.glucidos = 0.0
-            alimento.grasas = 6.3
+            alimento = DerivadoCarne.new("Cerdo", 21.5, 0, 6.3)
             expect(alimento.valor_energetico).to be_within(@tolerancia).of(142.7)
           end
         end
@@ -158,7 +175,7 @@ RSpec.describe Nutrientes do
   describe PescadoMarisco do
     context "para una instancia de la clase" do
       before :each do
-        @alimento = PescadoMarisco.new("Bacalao")
+        @alimento = PescadoMarisco.new("Bacalao", 0, 0, 0)
       end
 
       it "su clase es PescadoMarisco" do
@@ -182,10 +199,7 @@ RSpec.describe Nutrientes do
       context "para el Bacalao" do
         describe "#valor_energetico" do
           it "devuelve 74.4 Kcal" do
-            alimento = PescadoMarisco.new("Bacalao")
-            alimento.proteinas = 17.7
-            alimento.glucidos = 0.0
-            alimento.grasas = 0.4
+            alimento = PescadoMarisco.new("Bacalao", 17.7, 0, 0.4)
             expect(alimento.valor_energetico).to be_within(@tolerancia).of(74.3)
           end
         end
@@ -196,7 +210,7 @@ RSpec.describe Nutrientes do
   describe AlimentoGraso do
     context "para una instancia de la clase" do
       before :each do
-        @alimento = AlimentoGraso.new("Chocolate")
+        @alimento = AlimentoGraso.new("Chocolate", 0, 0, 0)
       end
 
       it "su clase es AlimentoGraso" do
@@ -220,10 +234,7 @@ RSpec.describe Nutrientes do
       context "para el Aceite de oliva" do
         describe "#valor_energetico" do
           it "devuelve 897.2 Kcal" do
-            alimento = AlimentoGraso.new("Aceite de oliva")
-            alimento.proteinas = 0.0
-            alimento.glucidos = 0.2
-            alimento.grasas = 99.6
+            alimento = AlimentoGraso.new("Aceite de oliva", 0, 0.2, 99.6)
             expect(alimento.valor_energetico).to be_within(@tolerancia).of(897.2)
           end
         end
@@ -234,7 +245,7 @@ RSpec.describe Nutrientes do
   describe AlimentoRicoCarbohidratos do
     context "para una instancia de la clase" do
       before :each do
-        @alimento = AlimentoRicoCarbohidratos.new("Arroz")
+        @alimento = AlimentoRicoCarbohidratos.new("Arroz", 0, 0, 0)
       end
 
       it "su clase es AlimentoRicoCarbohidratos" do
@@ -258,10 +269,7 @@ RSpec.describe Nutrientes do
       context "para el Arroz" do
         describe "#valor_energetico" do
           it "devuelve 343.4 Kcal" do
-            alimento = AlimentoRicoCarbohidratos.new("Arroz")
-            alimento.proteinas = 6.8
-            alimento.glucidos = 77.7
-            alimento.grasas = 0.6
+            alimento = AlimentoRicoCarbohidratos.new("Arroz", 6.8, 77.7, 0.6)
             expect(alimento.valor_energetico).to be_within(@tolerancia).of(343.4)
           end
         end
@@ -272,7 +280,7 @@ RSpec.describe Nutrientes do
   describe VerduraHortaliza do
     context "para una instancia de la clase" do
       before :each do
-        @alimento = VerduraHortaliza.new("Tomate")
+        @alimento = VerduraHortaliza.new("Tomate", 0, 0, 0)
       end
 
       it "su clase es VerduraHortaliza" do
@@ -296,10 +304,7 @@ RSpec.describe Nutrientes do
       context "para el Tomate" do
         describe "#valor_energetico" do
           it "devuelve 19.8 Kcal" do
-            alimento = VerduraHortaliza.new("Tomate")
-            alimento.proteinas = 1.0
-            alimento.glucidos = 3.5
-            alimento.grasas = 0.2
+            alimento = VerduraHortaliza.new("Tomate",1,3.5,0.2)
             expect(alimento.valor_energetico).to be_within(@tolerancia).of(19.8)
           end
         end
@@ -310,7 +315,7 @@ RSpec.describe Nutrientes do
   describe Fruta do
     context "para una instancia de la clase" do
       before :each do
-        @alimento = Fruta.new("Manzana")
+        @alimento = Fruta.new("Manzana", 0, 0, 0)
       end
 
       it "su clase es Fruta" do
@@ -334,10 +339,7 @@ RSpec.describe Nutrientes do
       context "para la Manzana" do
         describe "#valor_energetico" do
           it "devuelve 54.4 Kcal" do
-            alimento = Fruta.new("Manzana")
-            alimento.proteinas = 0.3
-            alimento.glucidos = 12.4
-            alimento.grasas = 0.4
+            alimento = Fruta.new("Manzana",0.3,12.4,0.4)
             expect(alimento.valor_energetico).to be_within(@tolerancia).of(54.4)
           end
         end
@@ -348,7 +350,7 @@ RSpec.describe Nutrientes do
   describe Bebida do
     context "para una instancia de la clase" do
       before :each do
-        @alimento = Bebida.new("Zumo naranja")
+        @alimento = Bebida.new("Zumo naranja", 0, 0, 0)
       end
 
       it "su clase es Bebida" do
@@ -375,34 +377,34 @@ RSpec.describe Nutrientes do
   describe Alimento do
 
     it "es comparable" do
-      alimento = Alimento.new("Pollo")
+      alimento = Alimento.new("Pollo", 0, 0, 0)
       expect(alimento.respond_to?("<=>")).to be true
       expect(Alimento < Comparable).to be true
-      expect(Alimento.new("Leche") == Alimento.new("Leche")).to be true
-      expect(Alimento.new("Leche") == Alimento.new("Atún")).to be false
-      expect(Alimento.new("Pan") < Alimento.new("Cereales")).to be false
-      expect(Alimento.new("Pan") > Alimento.new("Cereales")).to be true
+      expect(Alimento.new("Leche", 0, 0, 0) == Alimento.new("Leche", 0, 0, 0)).to be true
+      expect(Alimento.new("Leche", 0, 0, 0) == Alimento.new("Atún", 0, 0, 0)).to be false
+      expect(Alimento.new("Pan", 0, 0, 0) < Alimento.new("Cereales", 0, 0, 0)).to be false
+      expect(Alimento.new("Pan", 0, 0, 0) > Alimento.new("Cereales", 0, 0, 0)).to be true
     end
 
     context "para una instancia cualquiera" do
       it "tiene un nombre" do
-        expect {Alimento.new("Pollo")}.not_to raise_error
+        expect {Alimento.new("Pollo", 0, 0, 0)}.not_to raise_error
       end
 
       it "existe cantidad de proteínas" do
-        alimento = Alimento.new("Pollo")
+        alimento = Alimento.new("Pollo", 0, 0, 0)
         expect(alimento.instance_variable_defined?(:@proteinas)).to be true
         expect(alimento.respond_to?("proteinas=")).to be true
       end
 
       it "existe cantidad de glúcidos" do
-        alimento = Alimento.new("Pollo")
+        alimento = Alimento.new("Pollo", 0, 0, 0)
         expect(alimento.instance_variable_defined?(:@glucidos)).to be true
         expect(alimento.respond_to?("glucidos=")).to be true
       end
 
       it "existe cantidad de grasas" do
-        alimento = Alimento.new("Pollo")
+        alimento = Alimento.new("Pollo", 0, 0, 0)
         expect(alimento.instance_variable_defined?(:@grasas)).to be true
         expect(alimento.respond_to?("grasas=")).to be true
       end
@@ -411,14 +413,14 @@ RSpec.describe Nutrientes do
     context "en el alimento Pollo" do
       describe "#nombre" do
         it "devuelve Pollo" do
-          alimento = Alimento.new("Pollo")
+          alimento = Alimento.new("Pollo", 0, 0, 0)
           expect(alimento.nombre).to eq("Pollo")
         end
       end
 
       describe "#proteinas" do
         it "devuelve 20.6 gramos" do
-          alimento = Alimento.new("Pollo")
+          alimento = Alimento.new("Pollo", 0, 0, 0)
           alimento.proteinas = 20.6
           expect(alimento.proteinas).to eq(20.6)
         end
@@ -426,7 +428,7 @@ RSpec.describe Nutrientes do
 
       describe "#glucidos" do
         it "devuelve 0.0 gramos" do
-          alimento = Alimento.new("Pollo")
+          alimento = Alimento.new("Pollo", 0, 0, 0)
           alimento.glucidos = 0.0
           expect(alimento.glucidos).to eq(0.0)
         end
@@ -434,7 +436,7 @@ RSpec.describe Nutrientes do
 
       describe "#grasas" do
         it "devuelve 5.6 gramos" do
-          alimento = Alimento.new("Pollo")
+          alimento = Alimento.new("Pollo", 0, 0, 0)
           alimento.grasas = 5.6
           expect(alimento.grasas).to eq(5.6)
         end
@@ -442,20 +444,14 @@ RSpec.describe Nutrientes do
 
       describe "#to_s" do
         it "devuelve Pollo (proteínas: 20.6, glúcidos: 0, grasas: 5.6)" do
-          alimento = Alimento.new("Pollo")
-          alimento.proteinas = 20.6
-          alimento.glucidos = 0
-          alimento.grasas = 5.6
+          alimento = Alimento.new("Pollo", 20.6, 0, 5.6)
           expect(alimento.to_s).to eq("Pollo (proteínas: 20.6, glúcidos: 0, grasas: 5.6)")
         end
       end
 
       describe "#valor_energetico" do
         it "devuelve 132.8 Kcal" do
-          alimento = Alimento.new("Pollo")
-          alimento.proteinas = 20.6
-          alimento.glucidos = 0
-          alimento.grasas = 5.6
+          alimento = Alimento.new("Pollo", 20.6, 0, 5.6)
           expect(alimento.valor_energetico).to be_within(@tolerancia).of(132.8)
         end
       end
@@ -465,10 +461,7 @@ RSpec.describe Nutrientes do
     context "en el alimento Huevo frito" do
       describe "#valor_energetico" do
         it "devuelve 231.9 Kcal" do
-          alimento = Alimento.new("Huevo frito")
-          alimento.proteinas = 14.1
-          alimento.glucidos = 0
-          alimento.grasas = 19.5
+          alimento = Alimento.new("Huevo frito",14.1,0,19.5)
           expect(alimento.valor_energetico).to be_within(@tolerancia).of(231.9)
         end
       end
@@ -476,10 +469,7 @@ RSpec.describe Nutrientes do
     context "en el alimento Leche vaca" do
       describe "#valor_energetico" do
         it "devuelve 61.2 Kcal" do
-          alimento = Alimento.new("Leche vaca")
-          alimento.proteinas = 3.3
-          alimento.glucidos = 4.8
-          alimento.grasas = 3.2
+          alimento = Alimento.new("Leche vaca",3.3,4.8,3.2)
           expect(alimento.valor_energetico).to be_within(@tolerancia).of(61.2)
         end
       end
@@ -487,10 +477,7 @@ RSpec.describe Nutrientes do
     context "en el alimento Arroz" do
       describe "#valor_energetico" do
         it "devuelve 343.4 Kcal" do
-          alimento = Alimento.new("Arroz")
-          alimento.proteinas = 6.8
-          alimento.glucidos = 77.7
-          alimento.grasas = 0.6
+          alimento = Alimento.new("Arroz",6.8,77.7,0.6)
           expect(alimento.valor_energetico).to be_within(@tolerancia).of(343.4)
         end
       end
@@ -498,10 +485,7 @@ RSpec.describe Nutrientes do
     context "en el alimento Aceite de oliva" do
       describe "#valor_energetico" do
         it "devuelve 897.2 Kcal" do
-          alimento = Alimento.new("Aceite de oliva")
-          alimento.proteinas = 0
-          alimento.glucidos = 0.2
-          alimento.grasas = 99.6
+          alimento = Alimento.new("Aceite de oliva",0,0.2,99.6)
           expect(alimento.valor_energetico).to be_within(@tolerancia).of(897.2)
         end
       end
@@ -517,7 +501,7 @@ RSpec.describe Nutrientes do
 
       context "en el alimento chocolate" do
         it "devuelve 13" do
-          alimento = Alimento.new("Chocolate")
+          alimento = Alimento.new("Chocolate", 0, 0, 0)
           mediciones_alimento = [[6.5, 6.5, 6.7, 6.5, 6.5, 6.8, 6.7, 6.2, 6.5, 7.2, 6.9, 7.0, 6.3, 6.2, 6.1, 5.9, 5.8, 6.1, 6.7, 6.7, 6.6, 6.7, 6.9, 7.2, 7.1],
                                  [4.6, 4.6, 4.7, 4.7, 4.8, 4.7, 4.8, 4.8, 4.6, 4.4, 4.7, 4.7, 4.8, 4.7, 5.2, 5.9, 5.9, 5.7, 5.4, 5.3, 5.1, 4.8, 4.8, 4.9, 5.9]]
           alimento.mediciones_alimento=mediciones_alimento
@@ -527,7 +511,7 @@ RSpec.describe Nutrientes do
 
       context "en el alimento yogurt" do
         it "devuelve 41" do
-          alimento = Alimento.new("Yogurt")
+          alimento = Alimento.new("Yogurt", 0, 0, 0)
           mediciones_alimento = [[6.1, 6.6, 6.3, 6.3, 6.1, 6.9, 6.8, 6.5, 6.4, 6.9, 6.8, 6.5, 6.3, 6.2, 6.7, 6.2, 5.9, 5.8, 5.8, 5.8, 5.8, 5.8, 5.9, 6.2, 6.4],
                                  [4.9, 4.9, 5.2, 5.8, 6.5, 7.0, 7.2, 7.3, 7.3, 6.6, 6.2, 6.1, 6.0, 6.1, 5.9, 5.9, 5.9, 5.9, 5.8, 5.8, 5.5, 5.5, 5.6, 5.9, 5.9]]
           alimento.mediciones_alimento=mediciones_alimento
@@ -537,7 +521,7 @@ RSpec.describe Nutrientes do
 
       context "en el alimento compota de manzana" do
         it "devuelve 54" do
-          alimento = Alimento.new("Compota de manzana")
+          alimento = Alimento.new("Compota de manzana", 0, 0, 0)
           mediciones_alimento = [[6.7, 6.5, 6.8, 6.9, 7.0, 7.1, 6.9, 6.9, 6.9, 6.7, 6.9, 7.3, 7.0, 7.0, 7.2, 7.1, 6.8, 7.2, 7.3, 7.0, 6.8, 6.7, 6.8, 6.7, 6.9],
                                  [4.6, 4.8, 5.3, 5.6, 6.1, 6.5, 6.6, 7.0, 7.0, 6.8, 6.4, 6.3, 6.1, 6.1, 6.2, 6.0, 6.1, 6.1, 6.2, 6.3, 6.4, 6.1, 6.1, 5.7, 5.9]]
           alimento.mediciones_alimento=mediciones_alimento

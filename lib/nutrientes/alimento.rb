@@ -17,11 +17,11 @@ class Alimento
   # @return [Array] las mediciones de glucosa en uno o más individuos cuando consumen el alimento
   attr_accessor :mediciones_alimento
 
-  def initialize(nombre)
+  def initialize(nombre, proteinas, glucidos, grasas)
     @nombre = nombre
-    @proteinas = 0
-    @glucidos = 0
-    @grasas = 0
+    @proteinas = proteinas
+    @glucidos = glucidos
+    @grasas = grasas
     @mediciones_alimento = []
   end
 
