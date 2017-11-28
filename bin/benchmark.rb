@@ -5,36 +5,38 @@ require "nutrientes"
 require "benchmark"
 include Benchmark
 
-def sort_for(array)
-  array_ordenado=array.map(&:clone)
-  n = array_ordenado.length
-  loop do
-    cambiado = false
-    for i in 0..n-2 do
-      if array_ordenado[i] > array_ordenado[i+1]
-        array_ordenado[i], array_ordenado[i+1] = array_ordenado[i+1], array_ordenado[i]
-        cambiado = true
+class Array
+  def sort_for
+    array_ordenado=self.map(&:clone)
+    n = array_ordenado.length
+    loop do
+      cambiado = false
+      for i in 0..n-2 do
+        if array_ordenado[i] > array_ordenado[i+1]
+          array_ordenado[i], array_ordenado[i+1] = array_ordenado[i+1], array_ordenado[i]
+          cambiado = true
+        end
       end
+      break unless cambiado
     end
-    break unless cambiado
-  end
-  array_ordenado
-end
-
-def sort_each(array)
-  array_ordenado=array.map(&:clone)
-  loop do
-    cambiado = false
-    (0..array_ordenado.length-2).each { |i|
-      if array_ordenado[i] > array_ordenado[i+1]
-        array_ordenado[i], array_ordenado[i+1] = array_ordenado[i+1], array_ordenado[i]
-        cambiado = true
-      end
-    }
-    break unless cambiado
+    array_ordenado
   end
 
-  array_ordenado
+  def sort_each
+    array_ordenado=self.map(&:clone)
+    loop do
+      cambiado = false
+      (0..array_ordenado.length-2).each {|i|
+        if array_ordenado[i] > array_ordenado[i+1]
+          array_ordenado[i], array_ordenado[i+1] = array_ordenado[i+1], array_ordenado[i]
+          cambiado = true
+        end
+      }
+      break unless cambiado
+    end
+
+    array_ordenado
+  end
 end
 
 alimentos = [HuevoLacteoHelado.new("Huevo frito", 14.1, 0, 19.5),
@@ -61,7 +63,7 @@ alimentos = [HuevoLacteoHelado.new("Huevo frito", 14.1, 0, 19.5),
              Fruta.new("Pera", 0.5, 12.7, 0.3)]
 
 Benchmark.bmbm do |x|
-  x.report("sort_for") { sort_for alimentos }
-  x.report("sort_each")  { sort_each alimentos  }
-  x.report("sort")  { alimentos.sort  }
+  x.report("sort_for") {alimentos.sort_for}
+  x.report("sort_each") {alimentos.sort_each}
+  x.report("sort") {alimentos.sort}
 end
