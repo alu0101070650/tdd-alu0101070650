@@ -80,13 +80,6 @@ class Lista
     numero_nodos
   end
 
-  # Compara dos listas
-  # @param otro [Lista] la otra lista con la que comparar
-  # @return [Numeric] -1 si otro es mayor, 0 si son iguales o 1 si otro es menor
-  def <=>(otro)
-    numero_nodos <=> otro.numero_nodos
-  end
-
   # Itera todos los elementos de la lista
   def each
     nodo_actual = @cabeza

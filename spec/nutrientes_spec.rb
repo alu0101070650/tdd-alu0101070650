@@ -111,6 +111,7 @@ RSpec.describe Nutrientes do
           expect(@lista.respond_to?("extraer_cabeza")).to be true
           expect(@lista.extraer_cabeza).to eq("Hola")
           expect(@lista.extraer_cabeza).to eq("que")
+          expect(@lista.extraer_cabeza).to eq("tal")
         end
       end
 
