@@ -52,17 +52,7 @@ RSpec.describe Nutrientes do
 
       def sort_each
         array_ordenado=self.map(&:clone)
-        loop do
-          cambiado = false
-          (0..array_ordenado.length-2).each {|i|
-            if array_ordenado[i] > array_ordenado[i+1]
-              array_ordenado[i], array_ordenado[i+1] = array_ordenado[i+1], array_ordenado[i]
-              cambiado = true
-            end
-          }
-          break unless cambiado
-        end
-
+        (0..(self.size-1)*(self.size-1)).each {(0..self.size-2).each {|i| array_ordenado[i], array_ordenado[i+1]=array_ordenado[i+1], array_ordenado[i] if 1==(array_ordenado[i]<=>array_ordenado[i+1])}}
         array_ordenado
       end
     end
