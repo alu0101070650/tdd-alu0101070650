@@ -62,6 +62,23 @@ RSpec.describe Nutrientes do
       end
     end
 
+    it "se puede crear un Plato de forma natural usando un DSL" do
+      expect(Plato.new("Lentejas con arroz, salsa de tomate, huevo y plátano a la plancha") do
+        vegetal     "Tomate",
+                    :porcion => "2 piezas pequeñas"
+        fruta       "Plátano",
+                    :gramos => 20
+        cereal      "Arroz",
+                    :porcion => "1 taza"
+        proteina    "Lentejas",
+                    :porcion => "1/2 cucharón"
+        proteina    "Huevo",
+                    :porcion => "1 pieza"
+        aceite      "Aceite de oliva",
+                    :porcion => "1/2 cucharada"
+      end).not_to raise_error
+    end
+
   end
 
   describe Array do
