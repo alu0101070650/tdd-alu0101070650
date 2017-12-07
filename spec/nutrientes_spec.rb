@@ -34,36 +34,36 @@ RSpec.describe Nutrientes do
   describe Plato do
     describe "#vegetal" do
       it "tiene un metodo vegetal" do
-        expect(Plato.new.respond_to?("vegetal")).to be true
+        expect(Plato.new("Tortilla de papas").respond_to?("vegetal")).to be true
       end
     end
 
     describe "#fruta" do
       it "tiene un metodo fruta" do
-        expect(Plato.new.respond_to?("fruta")).to be true
+        expect(Plato.new("Tortilla de papas").respond_to?("fruta")).to be true
       end
     end
 
     describe "#cereal" do
       it "tiene un metodo cereal" do
-        expect(Plato.new.respond_to?("cereal")).to be true
+        expect(Plato.new("Tortilla de papas").respond_to?("cereal")).to be true
       end
     end
 
     describe "#proteina" do
       it "tiene un metodo proteina" do
-        expect(Plato.new.respond_to?("proteina")).to be true
+        expect(Plato.new("Tortilla de papas").respond_to?("proteina")).to be true
       end
     end
 
     describe "#aceite" do
       it "tiene un metodo aceite" do
-        expect(Plato.new.respond_to?("aceite")).to be true
+        expect(Plato.new("Tortilla de papas").respond_to?("aceite")).to be true
       end
     end
 
     it "se puede crear un Plato de forma natural usando un DSL" do
-      expect(Plato.new("Lentejas con arroz, salsa de tomate, huevo y plátano a la plancha") do
+      expect{Plato.new("Lentejas con arroz, salsa de tomate, huevo y plátano a la plancha") do
         vegetal     "Tomate",
                     :porcion => "2 piezas pequeñas"
         fruta       "Plátano",
@@ -76,7 +76,7 @@ RSpec.describe Nutrientes do
                     :porcion => "1 pieza"
         aceite      "Aceite de oliva",
                     :porcion => "1/2 cucharada"
-      end).not_to raise_error
+      end}.not_to raise_error
     end
 
   end
