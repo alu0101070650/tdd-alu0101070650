@@ -30,6 +30,39 @@ RSpec.describe Nutrientes do
   it "tiene un numero de version" do
     expect(Nutrientes::VERSION).not_to be nil
   end
+  
+  describe Plato do
+    describe "#vegetal" do
+      it "tiene un metodo vegetal" do
+        expect(Plato.new.respond_to?("vegetal")).to be true
+      end
+    end
+
+    describe "#fruta" do
+      it "tiene un metodo fruta" do
+        expect(Plato.new.respond_to?("fruta")).to be true
+      end
+    end
+
+    describe "#cereal" do
+      it "tiene un metodo cereal" do
+        expect(Plato.new.respond_to?("cereal")).to be true
+      end
+    end
+
+    describe "#proteina" do
+      it "tiene un metodo proteina" do
+        expect(Plato.new.respond_to?("proteina")).to be true
+      end
+    end
+
+    describe "#aceite" do
+      it "tiene un metodo aceite" do
+        expect(Plato.new.respond_to?("aceite")).to be true
+      end
+    end
+
+  end
 
   describe Array do
     describe "#sort_for" do
