@@ -11,6 +11,7 @@ require "nutrientes/bebida"
 require "nutrientes/nodo"
 require "nutrientes/lista"
 require "nutrientes/array"
+require "nutrientes/plato"
 
 module Nutrientes
   # Your code goes here...
