@@ -93,10 +93,6 @@ class Plato
     salida
   end
 
-  def test
-    puts @alimentos_plato
-  end
-
   def formatear_texto(texto, longitud)
     espacios = longitud - texto.length
     if espacios < 0

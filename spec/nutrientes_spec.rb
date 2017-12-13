@@ -77,6 +77,23 @@ RSpec.describe Nutrientes do
         aceite      "Aceite de oliva",
                     :porcion => "1/2 cucharada"
       end}.not_to raise_error
+
+      p = Plato.new("Nombre plato") do |p|
+        p.vegetal     "Tomate",
+                    :porcion => "2 piezas pequeñas"
+        p.aceite      "Aceite de oliva",
+                    :porcion => "1/2 cucharada"
+      end
+
+
+      expect(p.to_s.hash).to be_equal "Nombre plato
+============
+Composición nutricional:
+                 glúcidos    proteínas   lípidos     valor energético
+Tomate           3.5         1           0.2         118.8
+Aceite de oliva  0.2         0           99.6        448.6
+Valor energético total                               567.4".hash
+
     end
 
   end
